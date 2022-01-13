@@ -58,6 +58,7 @@ export default function PanResponderAdapter<T extends Route>({
   onSwipeEnd,
   children,
   style,
+  initialPosition
 }: Props<T>) {
   const { routes, index } = navigationState;
 
@@ -280,7 +281,7 @@ export default function PanResponderAdapter<T extends Route>({
   return children({
     position: layout.width
       ? Animated.divide(panX, -layout.width)
-      : new Animated.Value(index),
+      : initialPositionn || new Animated.Value(index),
     addEnterListener,
     jumpTo,
     render: (children) => (
